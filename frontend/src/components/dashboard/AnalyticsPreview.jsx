@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { RadarChart, Radar, PolarGrid, PolarAngleAxis, BarChart, Bar, XAxis, YAxis, Tooltip, LineChart, Line, ResponsiveContainer } from 'recharts'
+import { TrendingUp } from 'lucide-react'
 
 const radarData = [{ metric: 'Communication', score: 72 }, { metric: 'Confidence', score: 85 }, { metric: 'Technical', score: 68 }, { metric: 'Problem Solving', score: 78 }, { metric: 'Clarity', score: 82 }, { metric: 'Vocabulary', score: 90 }]
 const progressData = [{ session: 'S1', score: 52 }, { session: 'S2', score: 58 }, { session: 'S3', score: 65 }, { session: 'S4', score: 70 }, { session: 'S5', score: 78 }, { session: 'S6', score: 84 }]
 const skillData = [{ name: 'DBMS', score: 90 }, { name: 'React', score: 82 }, { name: 'DSA', score: 58 }, { name: 'OS', score: 70 }, { name: 'Networks', score: 63 }]
-const metricsTop = [{ label: 'Placement Readiness', value: '84%', color: '#8b5cf6', sub: '↑ 32% this week' }, { label: 'Total Sessions', value: '12', color: '#22d3ee', sub: '4h 20m practice' }, { label: 'Top Strength', value: 'Vocabulary', color: '#34d399', sub: '90/100 score' }, { label: 'Weak Area', value: 'DSA', color: '#f97316', sub: 'Needs practice' }]
+const metricsTop = [
+  { label: 'Placement Readiness', value: '84%', color: '#8b5cf6', sub: '32% this week', icon: TrendingUp }, 
+  { label: 'Total Sessions', value: '12', color: '#22d3ee', sub: '4h 20m practice' }, 
+  { label: 'Top Strength', value: 'Vocabulary', color: '#34d399', sub: '90/100 score' }, 
+  { label: 'Weak Area', value: 'DSA', color: '#f97316', sub: 'Needs practice' }
+]
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) return <div className="glass px-3 py-2 rounded-xl border border-white/10 text-xs text-white/80"><p className="font-bold mb-1">{label}</p><p style={{ color: '#8b5cf6' }}>{payload[0].value}%</p></div>
@@ -25,13 +31,16 @@ export default function AnalyticsPreview() {
           <p className="text-white/50 text-lg max-w-xl mx-auto">Beautiful charts that show exactly where you are — and what you need to work on.</p>
         </motion.div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {metricsTop.map((m, i) => (
-            <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.1 }} className="glass rounded-2xl p-5 border border-white/[0.07]">
-              <div className="text-2xl font-display font-black mb-1" style={{ color: m.color }}>{m.value}</div>
-              <div className="text-xs text-white/60 font-medium mb-1">{m.label}</div>
-              <div className="text-[11px] text-white/30">{m.sub}</div>
-            </motion.div>
-          ))}
+            {metricsTop.map((m, i) => (
+              <motion.div key={m.label} initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.1 }} className="glass rounded-2xl p-5 border border-white/[0.07]">
+                <div className="text-2xl font-display font-black mb-1" style={{ color: m.color }}>{m.value}</div>
+                <div className="text-xs text-white/60 font-medium mb-1">{m.label}</div>
+                <div className="text-[11px] text-white/30 flex items-center gap-1">
+                  {m.icon && <m.icon size={10} className="text-[#22d3ee]" />}
+                  {m.sub}
+                </div>
+              </motion.div>
+            ))}
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.7, delay: 0.2 }} className="glass rounded-2xl p-6 border border-white/[0.07]">

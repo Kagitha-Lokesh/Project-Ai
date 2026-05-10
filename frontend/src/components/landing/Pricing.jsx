@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { slideInLeft, slideInRight } from '../../utils/animations';
-import { Check } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 
 export default function Pricing() {
   return (
@@ -73,7 +73,9 @@ export default function Pricing() {
               ))}
             </ul>
             
-            <a href="#" className="btn-primary w-full">Upgrade to Pro &rarr;</a>
+            <a href="#" className="btn-primary w-full flex items-center justify-center gap-2">
+              Upgrade to Pro <ArrowRight size={16} />
+            </a>
           </motion.div>
         </div>
       </div>

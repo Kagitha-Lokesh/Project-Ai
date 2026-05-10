@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Github } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, ArrowRight, Github, Hand } from 'lucide-react';
 import AuthPresentation from '../../components/auth/AuthPresentation';
 import AuthCard from '../../components/auth/AuthCard';
 
@@ -65,7 +65,7 @@ export default function LoginPage() {
       {/* Right Side: Auth Form */}
       <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 relative min-h-screen lg:min-h-0">
         <AuthCard 
-          title="Welcome back 👋" 
+          title={<div className="flex items-center gap-2">Welcome back <Hand className="w-6 h-6 md:w-8 md:h-8 text-orange" /></div>} 
           subtitle="Login to continue your preparation journey."
         >
           <form className="space-y-4 md:space-y-5" onSubmit={(e) => e.preventDefault()}>

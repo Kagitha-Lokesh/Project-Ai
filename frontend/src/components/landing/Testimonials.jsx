@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Star, TrendingUp, Quote, Sparkles } from 'lucide-react';
+import { Star, TrendingUp, Quote, Sparkles, MoveRight } from 'lucide-react';
 
 const testimonials = [
   {
@@ -195,8 +195,13 @@ function TestimonialCard({ item, isFeatured }) {
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-1">
               <span className="text-[9px] font-bold text-dark/30 uppercase tracking-wider block">Score</span>
-              <div className="text-xs font-black text-dark flex items-center gap-1">
-                {item.metrics.score} <motion.div animate={{ y: [-1, 1, -1] }} transition={{ repeat: Infinity, duration: 2 }}><TrendingUp size={10} className="text-orange" /></motion.div>
+              <div className="text-xs font-black text-dark flex items-center gap-1.5">
+                {item.metrics.score.split(' → ')[0]}
+                <MoveRight size={10} className="text-dark/40" />
+                {item.metrics.score.split(' → ')[1]}
+                <motion.div animate={{ y: [-1, 1, -1] }} transition={{ repeat: Infinity, duration: 2 }}>
+                  <TrendingUp size={10} className="text-orange" />
+                </motion.div>
               </div>
             </div>
             <div className="space-y-1 border-x border-black/5 px-4">
