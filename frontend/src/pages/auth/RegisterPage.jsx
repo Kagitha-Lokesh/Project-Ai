@@ -44,14 +44,15 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen lg:h-screen w-full flex bg-primary overflow-x-hidden overflow-y-auto lg:overflow-hidden">
-      {/* Left Side: Cinematic Presentation */}
-      <div className="hidden lg:flex flex-1">
-        <AuthPresentation />
-      </div>
+    <div className="min-h-screen lg:h-screen w-full flex bg-primary overflow-x-hidden overflow-y-auto lg:overflow-hidden justify-center">
+      <div className="w-full max-w-7xl flex flex-col lg:flex-row h-full">
+        {/* Left Side: Cinematic Presentation */}
+        <div className="hidden lg:flex flex-[1.1] h-full">
+          <AuthPresentation />
+        </div>
 
-      {/* Right Side: Auth Form */}
-      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 relative min-h-screen lg:min-h-0">
+        {/* Right Side: Auth Form */}
+        <div className="flex-1 lg:flex-[0.9] flex flex-col items-center justify-center p-4 sm:p-8 lg:p-4 relative min-h-screen lg:min-h-0">
         <AuthCard 
           title="Join the Evolution" 
           subtitle="Create your AI placement identity today."
@@ -170,8 +171,9 @@ export default function RegisterPage() {
           <Link to="/" className="flex items-center gap-1 font-display font-black text-lg tracking-tighter text-dark">
             VivaX<span className="w-1 h-1 bg-orange rounded-full mt-1" />
           </Link>
-        </div>
       </div>
     </div>
+  </div>
+</div>
   );
 }

@@ -13,7 +13,7 @@ export default function AuthCard({ children, title, subtitle }) {
         {/* Subtle top gradient */}
         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-orange/20 to-transparent" />
         
-        <div className="mb-6">
+        <div className="mb-3">
           <motion.h2 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
