@@ -87,9 +87,12 @@ const AIOrb = () => (
 
 export default function AuthPresentation() {
   return (
-    <div className="hidden lg:flex flex-col justify-between h-full p-10 xl:p-12 relative overflow-hidden bg-primary/50">
+    <div className="hidden lg:flex flex-col justify-between h-full p-10 xl:p-12 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.015)_1px,transparent_1px)] bg-[size:45px_45px] [mask-image:radial-gradient(ellipse_at_top_left,black_20%,transparent_90%)]" />
+      
+      {/* Bottom-Left Fade Overlay */}
+      <div className="absolute -bottom-32 -left-32 w-[600px] h-[600px] bg-gradient-to-tr from-white via-white/50 to-transparent rounded-full blur-[100px] pointer-events-none opacity-40" />
       
       <div className="relative z-10">
         <motion.div
@@ -153,8 +156,6 @@ export default function AuthPresentation() {
         </motion.div>
       </div>
 
-      {/* Decorative ambient lighting */}
-      <div className="absolute -bottom-20 -left-20 w-[500px] h-[500px] bg-orange/5 rounded-full blur-[120px] pointer-events-none" />
     </div>
   );
 }
