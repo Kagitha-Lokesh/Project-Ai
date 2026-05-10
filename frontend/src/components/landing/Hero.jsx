@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useSpring, useMotionValue, animate, useTransform } from 'framer-motion';
 import { ChevronRight, Activity, Target } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const rounds = [
   {
@@ -259,10 +260,10 @@ export default function Hero() {
 
             {/* CTA Group */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={bootStage === 'ready' ? { opacity: 1, y: 0 } : {}} transition={SYSTEM_SPRING} className="mt-8 lg:mt-14 w-full flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-10">
-              <button className="w-full max-w-[320px] lg:w-auto group relative px-8 lg:px-12 py-5 bg-dark text-white rounded-xl lg:rounded-2xl font-black text-[9px] lg:text-[10px] tracking-[0.3em] shadow-2xl overflow-hidden">
+              <Link to="/register" className="w-full max-w-[320px] lg:w-auto group relative px-8 lg:px-12 py-5 bg-dark text-white rounded-xl lg:rounded-2xl font-black text-[9px] lg:text-[10px] tracking-[0.3em] shadow-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#FF8A00] to-[#FFC76B] opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="relative z-10 flex items-center justify-center gap-3 uppercase">Initialize Pressure Test <ChevronRight size={14} /></span>
-              </button>
+              </Link>
             </motion.div>
 
             {/* 2. MOBILE ANALYTICS STRIP */}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, useSpring } from 'framer-motion';
-import { slideInLeft, slideInRight } from '../utils/animations';
+import { slideInLeft, slideInRight } from '../../utils/animations';
 import { AlertTriangle } from 'lucide-react';
 
 function AnimatedCounter({ value, duration = 2500 }) {

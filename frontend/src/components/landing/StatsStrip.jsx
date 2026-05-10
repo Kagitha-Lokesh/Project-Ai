@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useCountUp } from '../hooks/useCountUp';
+import { useCountUp } from '../../hooks/useCountUp';
 
 const colleges = [
   "IIT BOMBAY", "BITS PILANI", "NIT WARANGAL", "VIT VELLORE", "IIIT HYDERABAD", 

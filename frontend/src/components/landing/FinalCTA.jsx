@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 export default function FinalCTA() {
   return (
@@ -35,16 +36,20 @@ export default function FinalCTA() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <motion.a 
-              href="#demo"
+            <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="btn-primary text-lg px-8 py-4 shadow-[0_15px_40px_rgba(212,160,23,0.3)] w-full sm:w-auto"
+              className="w-full sm:w-auto"
             >
-              Upload Resume & Start &rarr;
-            </motion.a>
+              <Link 
+                to="/register"
+                className="btn-primary text-lg px-8 py-4 shadow-[0_15px_40px_rgba(212,160,23,0.3)] flex items-center justify-center"
+              >
+                Upload Resume & Start &rarr;
+              </Link>
+            </motion.div>
             <motion.a 
               href="#how-it-works"
               initial={{ opacity: 0, y: 20 }}

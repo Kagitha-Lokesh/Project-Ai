@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -31,10 +32,10 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-1 group">
+        <Link to="/" className="flex items-center gap-1 group">
           <span className="font-display font-bold text-2xl tracking-wide text-dark">VivaX</span>
           <div className="w-2 h-2 rounded-full bg-orange mt-1 shadow-[0_0_10px_rgba(255,122,0,0.4)]" />
-        </a>
+        </Link>
 
         <div className="hidden lg:flex items-center gap-8">
           {navLinks.map((link) => (
@@ -45,11 +46,11 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:flex items-center gap-4">
-          <a href="#" className="text-sm font-bold text-dark hover:text-orange transition-colors px-2">Login</a>
-          <a href="#demo" className="bg-dark text-white px-6 py-2.5 rounded-xl font-black text-[10px] tracking-[0.2em] uppercase shadow-lg hover:shadow-dark/20 transition-all duration-300 group relative overflow-hidden">
+          <Link to="/login" className="text-sm font-bold text-dark hover:text-orange transition-colors px-2">Login</Link>
+          <Link to="/register" className="bg-dark text-white px-6 py-2.5 rounded-xl font-black text-[10px] tracking-[0.2em] uppercase shadow-lg hover:shadow-dark/20 transition-all duration-300 group relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-orange to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative z-10">Start Interview &rarr;</span>
-          </a>
+          </Link>
         </div>
 
         <button className="lg:hidden text-dark" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -72,8 +73,8 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-3 mt-4">
-                <a href="#" className="btn-ghost justify-center">Login</a>
-                <a href="#demo" className="btn-primary justify-center">Start Interview &rarr;</a>
+                <Link to="/login" onClick={() => setMobileOpen(false)} className="btn-ghost justify-center">Login</Link>
+                <Link to="/register" onClick={() => setMobileOpen(false)} className="btn-primary justify-center">Start Interview &rarr;</Link>
               </div>
             </div>
           </motion.div>

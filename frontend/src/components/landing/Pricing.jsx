@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { slideInLeft, slideInRight } from '../utils/animations';
+import { slideInLeft, slideInRight } from '../../utils/animations';
 import { Check } from 'lucide-react';
 
 export default function Pricing() {
